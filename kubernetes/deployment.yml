@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackjack
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: blackjack
+  template:
+    metadata:
+      labels:
+        component: blackjack
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/nikodemwrona/nest-next-blackjack-game/blackjack-api:latest
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: "3000"
+            - name: PICKATALE_API_URL
+              value: "https://pickatale-backend-case.herokuapp.com/shuffle"
+          ports:
+            - containerPort: 3000
