@@ -1,4 +1,11 @@
-import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  HttpStatus,
+  Get,
+} from '@nestjs/common';
 import { ApiCreatedResponse } from '@nestjs/swagger';
 
 import { GameService } from '../services';
@@ -16,5 +23,10 @@ export class GameController {
   })
   Start(@Body() startGame: StartGameDto): Promise<ResultDto> {
     return this.gameService.Start(startGame.player);
+  }
+
+  @Get('ping')
+  Hello(): string {
+    return 'PONG';
   }
 }
