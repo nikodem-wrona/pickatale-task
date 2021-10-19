@@ -20,16 +20,38 @@ jobs:
         working-directory: ./services/api
 
       - name: Push api Docker image
-        run: docker push "docker.pkg.github.com/nikodemwrona/nest-next-blackjack-game/blackjack-api:latest"
+        run: |
+          docker push "docker.pkg.github.com/nikodemwrona/nest-next-blackjack-game/blackjack-api:latest"
       
       - name: Deploy
         uses: steebchen/kubectl@v2.0.0
         with: 
           config: ${{ secrets.KUBECONFIG }}
-          command: rollout restart deployment blackjack
+          command: rollout restart deployment blackjack-api
 
       - name: Verify deployment
         uses: steebchen/kubectl@v2.0.0
         with:
           config: ${{ secrets.KUBECONFIG }}
-          command: rollout status deployment blackjack
+          command: rollout status deployment blackjack-api
+
+      - name: Build web Docker image
+        run: |
+          docker build --tag "docker.pkg.github.com/nikodemwrona/nest-next-blackjack-game/blackjack-web:latest" .
+        working-directory: ./services/web
+
+      - name: Push web Docker image
+        run: |
+          docker push "docker.pkg.github.com/nikodemwrona/nest-next-blackjack-game/blackjack-web:latest"
+      
+      - name: Deploy
+        uses: steebchen/kubectl@v2.0.0
+        with: 
+          config: ${{ secrets.KUBECONFIG }}
+          command: rollout restart deployment blackjack-web
+
+      - name: Verify deployment
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBECONFIG }}
+          command: rollout status deployment blackjack-web

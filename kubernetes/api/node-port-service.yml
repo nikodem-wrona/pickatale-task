@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: blackjack-nodeport
+  name: blackjack-api-nodeport
 spec:
   type: NodePort
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 4000
+      targetPort: 4000
       nodePort: 31516
   selector:
-    component: blackjack
+    component: blackjack-api

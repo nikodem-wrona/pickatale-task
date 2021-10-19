@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blackjack-api-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    component: blackjack-api
+  ports:
+    - port: 4000
+      targetPort: 4000

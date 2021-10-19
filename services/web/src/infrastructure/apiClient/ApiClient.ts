@@ -5,6 +5,8 @@ export class ApiClient {
   private readonly httpClient: HttpClient;
 
   constructor() {
+    console.log("TEST : ", process.env.NEXT_PUBLIC_API_URL);
+
     this.httpClient = createHttpClient({
       baseURL: process.env.NEXT_PUBLIC_API_URL,
     });

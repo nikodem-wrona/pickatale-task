@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blackjack
+  name: blackjack-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: blackjack
+      component: blackjack-api
   template:
     metadata:
       labels:
-        component: blackjack
+        component: blackjack-api
     spec:
       containers:
         - name: api
@@ -18,8 +18,8 @@ spec:
           imagePullPolicy: Always
           env:
             - name: PORT
-              value: "3000"
+              value: "4000"
             - name: PICKATALE_API_URL
               value: "https://pickatale-backend-case.herokuapp.com/shuffle"
           ports:
-            - containerPort: 3000
+            - containerPort: 4000

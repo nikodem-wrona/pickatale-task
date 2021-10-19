@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: blackjack-ingress-service
+  name: blackjack-web-ingress-service
   annotations:
     kubernetes.io/ingress.class: 'nginx'
     cert-manager.io/cluster-issuer: 'letsencrypt-prod'
@@ -22,7 +22,7 @@ spec:
             pathType: Exact
             backend:
               service:
-                name: blackjack-cluster-ip
+                name: blackjack-web-cluster-ip
                 port:
                   number: 3000
     - host: www.nikodemwrona.dev
@@ -32,7 +32,7 @@ spec:
             pathType: Exact
             backend:
               service:
-                name: blackjack-cluster-ip
+                name: blackjack-web-cluster-ip
                 port:
                   number: 3000
 

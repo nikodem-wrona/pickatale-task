@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackjack-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: blackjack-web
+  template:
+    metadata:
+      labels:
+        component: blackjack-web
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/nikodemwrona/nest-next-blackjack-game/blackjack-web:latest
+          imagePullPolicy: Always
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              value: "https://nikodemwrona.dev/blackjack"
+          ports:
+            - containerPort: 3000

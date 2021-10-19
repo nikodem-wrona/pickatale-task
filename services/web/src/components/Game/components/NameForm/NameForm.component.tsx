@@ -23,7 +23,7 @@ export const NameForm: FC<NameFormProps> = ({
       sx={{
         display: "flex",
         flexDirection: "column",
-        width: "15%",
+        width: "300px",
         padding: "10px",
       }}
       noValidate
