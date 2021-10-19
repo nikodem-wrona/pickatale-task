@@ -6,7 +6,16 @@ services:
       dockerfile: Dockerfile
     container_name: blackjack-api
     ports:
+      - 4000:4000
+    environment:
+      PORT: "4000"
+      PICKATALE_API_URL: https://pickatale-backend-case.herokuapp.com/shuffle
+  blackjack-web:
+    build:
+      context: ./services/web
+      dockerfile: Dockerfile
+    container_name: blackjack-web
+    ports:
       - 3000:3000
     environment:
-      PORT: "3000"
-      PICKATALE_API_URL: https://pickatale-backend-case.herokuapp.com/shuffle
+      NEXT_PUBLIC_API_URL: blackjack-api

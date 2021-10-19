@@ -1,4 +1,4 @@
 {
   "private": true,
-  "workspaces": ["./services/api"]
+  "workspaces": ["./services/api", "./services/web"]
 }
