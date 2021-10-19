@@ -7,6 +7,6 @@ spec:
   ports:
     - port: 3000
       targetPort: 3000
-      nodePort: 31515
+      nodePort: 31514
   selector:
     component: blackjack-web

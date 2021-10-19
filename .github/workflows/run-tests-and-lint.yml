@@ -1,0 +1,17 @@
+name: Run tests and lint
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  buildAndPush:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run api service tests
+        run: |
+          npm run test
+        working-directory: ./services/api

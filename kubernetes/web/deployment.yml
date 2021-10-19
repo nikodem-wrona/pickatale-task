@@ -18,6 +18,6 @@ spec:
           imagePullPolicy: Always
           env:
             - name: NEXT_PUBLIC_API_URL
-              value: "https://nikodemwrona.dev/blackjack"
+              value: "https://nikodemwrona.dev/blackjack/api"
           ports:
             - containerPort: 3000

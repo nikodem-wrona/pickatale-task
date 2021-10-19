@@ -4,6 +4,16 @@ Project is hosted on [nikodemwrona.dev](https://nikodemwrona.dev/blackjack).
 
 Services are deployed on Kubernetes cluster.
 
+The application consists of two microservices:
+- web
+- api
+
+`web service` is a simple web app build with Next.js 
+
+`api service` is a simple REST API build with Nest.js
+
+both services use `Typescript`
+
 ---
 To run the project locally you can use the following command from the root folder:
 
