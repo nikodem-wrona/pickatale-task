@@ -16,17 +16,17 @@ export interface GameBuilder {
   deck: Deck;
 }
 
-const TARGET_VALUE = 17;
+const DRAW_SUM = 17;
 
 export class Game {
   private deck: Deck;
   private readonly target: number;
 
-  private playerOneHand: Hand;
-  private playerTwoHand: Hand;
+  playerOneHand: Hand;
+  playerTwoHand: Hand;
 
   constructor(builder: GameBuilder) {
-    this.target = TARGET_VALUE;
+    this.target = DRAW_SUM;
     this.deck = builder.deck;
 
     this.playerOneHand = new Hand({
@@ -50,10 +50,10 @@ export class Game {
 
     const bothPlayersHaveBlackjack =
       this.playerOneHand.CheckBlackjack() &&
-      this.playerOneHand.CheckBlackjack();
+      this.playerTwoHand.CheckBlackjack();
 
     const bothPlayerHaveExceededScore =
-      this.playerTwoHand.CheckExceededScore() &&
+      this.playerOneHand.CheckExceededScore() &&
       this.playerTwoHand.CheckExceededScore();
 
     return bothPlayersHaveBlackjack || bothPlayerHaveExceededScore;
@@ -105,8 +105,8 @@ export class Game {
 
     this.DrawCards(this.playerOneHand, this.target);
 
-    if (this.playerTwoHand.CheckExceededScore()) {
-      return this.GetResult(this.playerOneHand.GetPlayer());
+    if (this.playerOneHand.CheckExceededScore()) {
+      return this.GetResult(this.playerTwoHand.GetPlayer());
     }
 
     this.DrawCards(this.playerTwoHand, this.playerOneHand.GetValue() + 1);

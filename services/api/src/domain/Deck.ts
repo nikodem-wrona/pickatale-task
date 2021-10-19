@@ -6,7 +6,7 @@ export interface DeckBuilder {
 }
 
 export class Deck {
-  private cards: Card[];
+  cards: Card[];
 
   constructor(builder: DeckBuilder) {
     this.cards = builder.cards;
@@ -14,7 +14,7 @@ export class Deck {
 
   RemoveCard(cardToRemove: Card) {
     this.cards = this.cards.filter(
-      (card) => card.ToString() === cardToRemove.ToString(),
+      (card) => card.ToString() !== cardToRemove.ToString(),
     );
   }
 
@@ -23,7 +23,7 @@ export class Deck {
       throw new EmptyDeckException();
     }
 
-    const pickedCard = this.cards[0];
+    const [pickedCard] = this.cards;
     this.RemoveCard(pickedCard);
 
     return pickedCard;

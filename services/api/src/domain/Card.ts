@@ -5,6 +5,13 @@ export enum Suit {
   CLUBS = 'C',
 }
 
+enum ShortFormOfSuit {
+  H = 'H',
+  D = 'D',
+  S = 'S',
+  C = 'C',
+}
+
 export enum Value {
   ACE = 'A',
   KING = 'K',
@@ -30,11 +37,11 @@ const ACE_VALUE = 11;
 const PICTURE_CARD_VALUE = 10;
 
 export class Card {
-  private readonly suit: Suit;
+  private readonly suit: ShortFormOfSuit;
   private readonly value: Value;
 
   constructor(builder: CardBuilder) {
-    this.suit = Suit[builder.suit];
+    this.suit = ShortFormOfSuit[builder.suit];
     this.value = builder.value;
   }
 

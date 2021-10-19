@@ -4,7 +4,7 @@ export type Player = string;
 
 export interface HandBuilder {
   player: Player;
-  cards: [Card, Card];
+  cards: Card[];
 }
 
 export const BLACKJACK_POINTS = 21;
@@ -34,6 +34,7 @@ export class Hand {
   GetValue(): number {
     let sum = 0;
     this.cards.forEach((card) => (sum += card.GetPoints()));
+
     return sum;
   }
 
