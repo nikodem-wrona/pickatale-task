@@ -11,10 +11,10 @@ describe('Game', () => {
   it('should create Game', () => {
     // Given
     const cards = [
-      createTestCard({ suit: Suit.C, value: Value.FIVE }),
-      createTestCard({ suit: Suit.D, value: Value.ACE }),
-      createTestCard({ suit: Suit.S, value: Value.EIGHT }),
-      createTestCard({ suit: Suit.H, value: Value.QUEEN }),
+      createTestCard({ suit: Suit.CLUBS, value: Value.FIVE }),
+      createTestCard({ suit: Suit.DIAMONDS, value: Value.ACE }),
+      createTestCard({ suit: Suit.SPADES, value: Value.EIGHT }),
+      createTestCard({ suit: Suit.HEARTS, value: Value.QUEEN }),
     ];
     const deck = createTestDeck({ cards });
 
@@ -29,7 +29,7 @@ describe('Game', () => {
       createTestCard({ value: Value.ACE }),
       createTestCard({ value: Value.TEN }),
       createTestCard({ value: Value.QUEEN }),
-      createTestCard({ suit: Suit.C, value: Value.ACE }),
+      createTestCard({ suit: Suit.CLUBS, value: Value.ACE }),
     ];
     const deck = createTestDeck({ cards });
     const game = new Game({ playerOne, playerTwo, deck });
@@ -69,7 +69,7 @@ describe('Game', () => {
       createTestCard({ value: Value.THREE }),
       createTestCard({ value: Value.SIX }),
       createTestCard({ value: Value.KING }),
-      createTestCard({ suit: Suit.S, value: Value.QUEEN }),
+      createTestCard({ suit: Suit.SPADES, value: Value.QUEEN }),
     ];
 
     const deck = createTestDeck({ cards });
@@ -85,14 +85,14 @@ describe('Game', () => {
   it('should check which player has higher score when no one exceeds 21 points', () => {
     // Given
     const cards = [
-      createTestCard({ suit: Suit.H, value: Value.FIVE }),
-      createTestCard({ suit: Suit.D, value: Value.FOUR }),
+      createTestCard({ suit: Suit.HEARTS, value: Value.FIVE }),
+      createTestCard({ suit: Suit.DIAMONDS, value: Value.FOUR }),
       createTestCard({ value: Value.TWO }),
       createTestCard({ value: Value.THREE }),
       createTestCard({ value: Value.SIX }),
-      createTestCard({ suit: Suit.C, value: Value.FOUR }),
+      createTestCard({ suit: Suit.CLUBS, value: Value.FOUR }),
       createTestCard({ value: Value.TEN }),
-      createTestCard({ suit: Suit.S, value: Value.FIVE }),
+      createTestCard({ suit: Suit.SPADES, value: Value.FIVE }),
     ];
     const deck = createTestDeck({ cards });
     const game = new Game({ playerOne, playerTwo, deck });
@@ -108,11 +108,11 @@ describe('Game', () => {
     // Given
     const cards = [
       createTestCard({ value: Value.FIVE }),
-      createTestCard({ suit: Suit.D, value: Value.FOUR }),
+      createTestCard({ suit: Suit.DIAMONDS, value: Value.FOUR }),
       createTestCard({ value: Value.TWO }),
       createTestCard({ value: Value.THREE }),
       createTestCard({ value: Value.SIX }),
-      createTestCard({ suit: Suit.S, value: Value.FOUR }),
+      createTestCard({ suit: Suit.SPADES, value: Value.FOUR }),
       createTestCard({ value: Value.TEN }),
       createTestCard({ value: Value.ACE }),
     ];

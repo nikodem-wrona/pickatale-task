@@ -11,10 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run tests
-        run: yarn test
-        working-directory: ./services/api
-
       - name: Docker login
         run: docker login docker.pkg.github.com -u $GITHUB_ACTOR --password ${{ secrets.GITHUB_TOKEN }}
 

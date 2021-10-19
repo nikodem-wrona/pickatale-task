@@ -1,10 +1,16 @@
 export enum Suit {
-  H = 'H',
-  D = 'D',
-  S = 'S',
-  C = 'C',
+  HEARTS = 'HEARTS',
+  DIAMONDS = 'DIAMONDS',
+  SPADES = 'SPADES',
+  CLUBS = 'CLUBS',
 }
 
+export enum ShortSuit {
+  HEARTS = 'H',
+  DIAMONDS = 'D',
+  SPADES = 'S',
+  CLUBS = 'C',
+}
 export enum Value {
   ACE = 'A',
   KING = 'K',
@@ -30,11 +36,11 @@ const ACE_VALUE = 11;
 const PICTURE_CARD_VALUE = 10;
 
 export class Card {
-  private readonly suit: Suit;
+  private readonly suit: ShortSuit;
   private readonly value: Value;
 
   constructor(builder: CardBuilder) {
-    this.suit = Suit[builder.suit];
+    this.suit = ShortSuit[builder.suit];
     this.value = builder.value;
   }
 
