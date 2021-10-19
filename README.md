@@ -1,6 +1,6 @@
 # Blackjack simulator
 
-Project is hosted on [nikodemwrona.dev](https://nikodemwrona.dev/blackjack).
+Project is hosted on [nikodemwrona.dev/blackjack](https://nikodemwrona.dev/blackjack)
 
 Services are deployed on Kubernetes cluster.
 
@@ -38,3 +38,9 @@ To check the code coverage of `api service` run the following command:
 ```
 yarn test:cov
 ```
+
+
+Dodać datadoga/sentry
+Generalnie wytargać wszystko na AWS
+Wytargać frontend na S3 i Cloudfront
+Sprawdzić metryki na ilośc gier i ilośc wygranych usera/bota

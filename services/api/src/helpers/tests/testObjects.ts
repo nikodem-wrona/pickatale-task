@@ -18,7 +18,7 @@ export const createTestDeck = (source: Partial<DeckBuilder> = {}): Deck => {
 
 export const createTestCard = (source: Partial<CardBuilder> = {}): Card => {
   const builder = {
-    suit: Suit.DIAMONDS,
+    suit: Suit.D,
     value: Value.ACE,
     ...source,
   };

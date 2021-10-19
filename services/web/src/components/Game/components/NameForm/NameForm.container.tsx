@@ -9,12 +9,13 @@ interface NameFormContainerProps {
 export const NameFormContainer: FC<NameFormContainerProps> = ({
   handleStartGame,
 }) => {
-  const { name, handleNameChange, handleSubmit } =
+  const { name, error, handleNameChange, handleSubmit } =
     useNameFormController(handleStartGame);
 
   return (
     <NameForm
       name={name}
+      error={error}
       handleNameChange={handleNameChange}
       handleSubmit={handleSubmit}
     />

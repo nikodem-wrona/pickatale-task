@@ -1,2 +1,2 @@
-export { Config } from "./config";
-export { InfrastructureModule } from "./infrastructure.module";
+export { Config } from './config';
+export { InfrastructureModule } from './infrastructure.module';

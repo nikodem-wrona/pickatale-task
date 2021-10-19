@@ -34,7 +34,6 @@ export class Hand {
   GetValue(): number {
     let sum = 0;
     this.cards.forEach((card) => (sum += card.GetPoints()));
-
     return sum;
   }
 
@@ -44,8 +43,8 @@ export class Hand {
 
   CheckBlackjack(): boolean {
     return (
-      this.GetNumberOfCards() === INITIAL_NUMBER_OF_CARDS &&
-      this.GetValue() === BLACKJACK_POINTS
+      this.GetValue() === BLACKJACK_POINTS &&
+      this.GetNumberOfCards() === INITIAL_NUMBER_OF_CARDS
     );
   }
 

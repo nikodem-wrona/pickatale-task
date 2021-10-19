@@ -37,7 +37,7 @@ export const Hand: FC<HandProps> = ({ player }) => {
   };
 
   return (
-    <Box key={player.player} sx={{ mt: 2 }}>
+    <Box key={player.player} sx={{ mt: 2, mr: 5 }}>
       <Typography variant="h5" component="div" gutterBottom>
         Player name: {player.player}
       </Typography>

@@ -2,14 +2,12 @@ import { Card, Suit, Value } from '../Card';
 
 describe('Card', () => {
   it('should create a Card', () => {
-    expect(
-      () => new Card({ suit: Suit.CLUBS, value: Value.TEN }),
-    ).not.toThrow();
+    expect(() => new Card({ suit: Suit.C, value: Value.TEN })).not.toThrow();
   });
 
   it('should convert Card to string', () => {
     // Given
-    const card = new Card({ suit: Suit.DIAMONDS, value: Value.KING });
+    const card = new Card({ suit: Suit.D, value: Value.KING });
 
     // When
 
@@ -19,7 +17,7 @@ describe('Card', () => {
 
   it('should get the correct points for Six', () => {
     // Given
-    const six = new Card({ suit: Suit.DIAMONDS, value: Value.SIX });
+    const six = new Card({ suit: Suit.D, value: Value.SIX });
 
     // When
 
@@ -29,7 +27,7 @@ describe('Card', () => {
 
   it('should get the correct points for King', () => {
     // Given
-    const king = new Card({ suit: Suit.DIAMONDS, value: Value.KING });
+    const king = new Card({ suit: Suit.D, value: Value.KING });
 
     // When
 
@@ -39,7 +37,7 @@ describe('Card', () => {
 
   it('should correctly calculate points of Ace', () => {
     // Given
-    const ace = new Card({ suit: Suit.DIAMONDS, value: Value.ACE });
+    const ace = new Card({ suit: Suit.D, value: Value.ACE });
 
     // When
 

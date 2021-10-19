@@ -2,3 +2,4 @@ node_modules
 volumes
 .env
 dist
+coverage

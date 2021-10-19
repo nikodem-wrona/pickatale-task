@@ -33,8 +33,8 @@ describe('Hand', () => {
   it('should return correct stringified Cards', () => {
     // Given
     const cards: Card[] = [
-      createTestCard({ suit: Suit.CLUBS, value: Value.KING }),
-      createTestCard({ suit: Suit.DIAMONDS, value: Value.TWO }),
+      createTestCard({ suit: Suit.C, value: Value.KING }),
+      createTestCard({ suit: Suit.D, value: Value.TWO }),
     ];
 
     // When
@@ -52,7 +52,7 @@ describe('Hand', () => {
       createTestCard(),
     ];
     const hand = new Hand({ player, cards });
-    const cardToAdd = createTestCard({ suit: Suit.SPADES, value: Value.KING });
+    const cardToAdd = createTestCard({ suit: Suit.S, value: Value.KING });
     expect(hand.GetNumberOfCards()).toEqual(3);
 
     // When
@@ -65,11 +65,11 @@ describe('Hand', () => {
   it('should add Cards to the Hand', () => {
     // Given
     const cards: Card[] = [
-      createTestCard({ suit: Suit.SPADES, value: Value.SIX }),
-      createTestCard({ suit: Suit.HEARTS, value: Value.QUEEN }),
+      createTestCard({ suit: Suit.S, value: Value.SIX }),
+      createTestCard({ suit: Suit.H, value: Value.QUEEN }),
     ];
     const hand = new Hand({ player, cards });
-    const cardToAdd = createTestCard({ suit: Suit.DIAMONDS, value: Value.ACE });
+    const cardToAdd = createTestCard({ suit: Suit.D, value: Value.ACE });
 
     // When
     hand.AddCard(cardToAdd);

@@ -88,7 +88,23 @@ export class Game {
     }
   }
 
-  Start(): GameResult {
+  private ProcessTurns(): GameResult {
+    this.DrawCards(this.playerOneHand, this.target);
+
+    if (this.playerOneHand.CheckExceededScore()) {
+      return this.GetResult(this.playerTwoHand.GetPlayer());
+    }
+
+    this.DrawCards(this.playerTwoHand, this.playerOneHand.GetValue() + 1);
+
+    if (this.playerTwoHand.CheckExceededScore()) {
+      return this.GetResult(this.playerOneHand.GetPlayer());
+    }
+
+    return this.GetResult(this.playerTwoHand.GetPlayer());
+  }
+
+  public Start(): GameResult {
     if (this.IsDraw()) {
       return this.GetResult(null);
     }
@@ -103,18 +119,6 @@ export class Game {
       return this.GetResult(this.playerTwoHand.GetPlayer());
     }
 
-    this.DrawCards(this.playerOneHand, this.target);
-
-    if (this.playerOneHand.CheckExceededScore()) {
-      return this.GetResult(this.playerTwoHand.GetPlayer());
-    }
-
-    this.DrawCards(this.playerTwoHand, this.playerOneHand.GetValue() + 1);
-
-    if (this.playerTwoHand.CheckExceededScore()) {
-      return this.GetResult(this.playerOneHand.GetPlayer());
-    }
-
-    return this.GetResult(this.playerTwoHand.GetPlayer());
+    return this.ProcessTurns();
   }
 }

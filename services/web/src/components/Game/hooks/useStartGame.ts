@@ -13,11 +13,8 @@ export const useStartGame: StartGame = () => {
 
   const handleStartGame = async (name: string): Promise<void> => {
     const result = await apiClient.StartGame(name);
-    console.log("RESULT : ", result);
     setGameResult(result);
   };
-
-
 
   return {
     gameResult,

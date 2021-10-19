@@ -6,7 +6,7 @@ export interface DeckBuilder {
 }
 
 export class Deck {
-  cards: Card[];
+  private cards: Card[];
 
   constructor(builder: DeckBuilder) {
     this.cards = builder.cards;

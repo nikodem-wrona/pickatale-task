@@ -29,7 +29,7 @@ export const GameResult: FC<GameResultProps> = ({ result }) => {
           {result.winner}
         </Typography>
       </Typography>
-      <Box>
+      <Box sx={{ display: "flex" }}>
         {result.players.map((player) => (
           <Hand player={player} />
         ))}

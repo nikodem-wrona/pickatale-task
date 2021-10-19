@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Post,
-  Body,
-  HttpCode,
-  HttpStatus,
-  Get,
-} from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
 import { GameService } from '../services';
 
 import { StartGameDto, ResultDto } from './dto';
@@ -18,10 +11,5 @@ export class GameController {
   @HttpCode(HttpStatus.CREATED)
   Start(@Body() startGame: StartGameDto): Promise<ResultDto> {
     return this.gameService.Start(startGame.player);
-  }
-
-  @Get('ping')
-  Hello(): string {
-    return 'PONG';
   }
 }

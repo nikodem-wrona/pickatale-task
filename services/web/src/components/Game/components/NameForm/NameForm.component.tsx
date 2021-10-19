@@ -8,12 +8,14 @@ import Typography from "@mui/material/Typography";
 
 interface NameFormProps {
   name: string;
+  error: string;
   handleNameChange: (name: string) => void;
   handleSubmit: () => void;
 }
 
 export const NameForm: FC<NameFormProps> = ({
   name,
+  error,
   handleNameChange,
   handleSubmit,
 }) => {
@@ -56,6 +58,9 @@ export const NameForm: FC<NameFormProps> = ({
             margin="normal"
             fullWidth
             value={name}
+            required
+            error={!!error}
+            helperText={error}
             onChange={(event) => {
               handleNameChange(event.currentTarget.value);
             }}
