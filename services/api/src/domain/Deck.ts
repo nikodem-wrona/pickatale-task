@@ -12,6 +12,10 @@ export class Deck {
     this.cards = builder.cards;
   }
 
+  GetNumberOfCards(): number {
+    return this.cards.length;
+  }
+
   RemoveCard(cardToRemove: Card) {
     this.cards = this.cards.filter(
       (card) => card.ToString() !== cardToRemove.ToString(),

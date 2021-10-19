@@ -32,7 +32,7 @@ describe('Deck', () => {
     // Then
     expect(cardOne).toEqual(cards[0]);
     expect(cardTwo).toEqual(cards[1]);
-    expect(deck.cards.length).toEqual(0);
+    expect(deck.GetNumberOfCards()).toEqual(0);
   });
 
   it('should throw an error when there is no cards in the Deck', () => {
