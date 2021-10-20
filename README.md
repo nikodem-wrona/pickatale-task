@@ -39,8 +39,6 @@ To check the code coverage of `api service` run the following command:
 yarn test:cov
 ```
 
+## Road to production
 
-Dodać datadoga/sentry
-Generalnie wytargać wszystko na AWS
-Wytargać frontend na S3 i Cloudfront
-Sprawdzić metryki na ilośc gier i ilośc wygranych usera/bota
+Production ready improvements can be found [here](https://nikodemwrona.notion.site/Blackjack-Simulator-Notes-2365b194b30240c9899a0b6540fc28c7).
