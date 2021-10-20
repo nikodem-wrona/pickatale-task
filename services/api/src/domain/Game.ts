@@ -76,14 +76,14 @@ export class Game {
       winner,
       players: [this.playerOneHand, this.playerTwoHand].map((hand) => ({
         player: hand.GetPlayer(),
-        points: hand.GetValue(),
-        cards: hand.GetCards(),
+        points: hand.GetValueOfCards(),
+        cards: hand.GetStringifiedCards(),
       })),
     };
   }
 
   private DrawCards(hand: Hand, target: number): void {
-    while (hand.GetValue() < target) {
+    while (hand.GetValueOfCards() < target) {
       hand.AddCard(this.deck.GetCard());
     }
   }
@@ -95,7 +95,10 @@ export class Game {
       return this.GetResult(this.playerTwoHand.GetPlayer());
     }
 
-    this.DrawCards(this.playerTwoHand, this.playerOneHand.GetValue() + 1);
+    this.DrawCards(
+      this.playerTwoHand,
+      this.playerOneHand.GetValueOfCards() + 1,
+    );
 
     if (this.playerTwoHand.CheckExceededScore()) {
       return this.GetResult(this.playerOneHand.GetPlayer());

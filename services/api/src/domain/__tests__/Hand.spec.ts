@@ -27,24 +27,10 @@ describe('Hand', () => {
     const hand = new Hand({ player, cards });
 
     // Then
-    expect(hand.GetValue()).toEqual(15);
+    expect(hand.GetValueOfCards()).toEqual(15);
   });
 
-  it('should return correct stringified Cards', () => {
-    // Given
-    const cards: Card[] = [
-      createTestCard({ suit: Suit.CLUBS, value: Value.KING }),
-      createTestCard({ suit: Suit.DIAMONDS, value: Value.TWO }),
-    ];
-
-    // When
-    const hand = new Hand({ player, cards });
-
-    // Then
-    expect(hand.GetCards()).toEqual(['CK', 'D2']);
-  });
-
-  it('should calculate number of cards', () => {
+  it('should calculate number of Cards', () => {
     // Given
     const cards: Card[] = [
       createTestCard(),
@@ -75,10 +61,10 @@ describe('Hand', () => {
     hand.AddCard(cardToAdd);
 
     // Then
-    expect(hand.GetCards()).toEqual(['S6', 'HQ', 'DA']);
+    expect(hand.GetStringifiedCards()).toEqual(['S6', 'HQ', 'DA']);
   });
 
-  it('should return true if hand has 21 points', () => {
+  it('should return true if Hand has 21 points', () => {
     // Given
     const cards: Card[] = [
       createTestCard({ value: Value.ACE }),
@@ -91,7 +77,7 @@ describe('Hand', () => {
     expect(hand.CheckBlackjack()).toEqual(true);
   });
 
-  it('should return false if hand has 21 points, after drawing a card', () => {
+  it('should return false if Hand has 21 points, after drawing a Card', () => {
     // Given
     const cards: Card[] = [
       createTestCard({ value: Value.EIGHT }),
@@ -108,7 +94,7 @@ describe('Hand', () => {
     expect(hand.CheckBlackjack()).toEqual(false);
   });
 
-  it('should return true if hand has more than 21 points', () => {
+  it('should return true if Hand has more than 21 points', () => {
     // Given
     const cards: Card[] = [
       createTestCard({ value: Value.TEN }),
@@ -123,5 +109,19 @@ describe('Hand', () => {
 
     // Then
     expect(hand.CheckExceededScore()).toEqual(true);
+  });
+
+  it('should return correct stringified Cards', () => {
+    // Given
+    const cards: Card[] = [
+      createTestCard({ suit: Suit.CLUBS, value: Value.KING }),
+      createTestCard({ suit: Suit.DIAMONDS, value: Value.TWO }),
+    ];
+
+    // When
+    const hand = new Hand({ player, cards });
+
+    // Then
+    expect(hand.GetStringifiedCards()).toEqual(['CK', 'D2']);
   });
 });

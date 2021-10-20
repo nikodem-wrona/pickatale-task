@@ -1,5 +1,7 @@
 # Blackjack simulator
 
+![](./recording.gif)
+
 Project is hosted on [nikodemwrona.dev/blackjack](https://nikodemwrona.dev/blackjack)
 
 Services are deployed on Kubernetes cluster.
@@ -29,9 +31,14 @@ yarn
 ```
 The monorepo uses `yarn workspaces` to manage dependencies in the `services` folder.
 
-To run `api service` tests go to `/services/api` and  run the following command:
+To run `api service` unit tests go to `/services/api` and  run the following command:
 ```
 yarn test
+```
+
+To run `api service` e2e tests go to `/services/api` and  run the following command:
+```
+yarn test:e2e
 ```
 
 To check the code coverage of `api service` run the following command:

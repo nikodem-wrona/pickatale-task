@@ -7,16 +7,6 @@ describe('Card', () => {
     ).not.toThrow();
   });
 
-  it('should convert Card to string', () => {
-    // Given
-    const card = new Card({ suit: Suit.DIAMONDS, value: Value.KING });
-
-    // When
-
-    // Then
-    expect(card.ToString()).toEqual('DK');
-  });
-
   it('should get the correct points for Six', () => {
     // Given
     const six = new Card({ suit: Suit.DIAMONDS, value: Value.SIX });
@@ -37,7 +27,7 @@ describe('Card', () => {
     expect(king.GetPoints()).toEqual(10);
   });
 
-  it('should correctly calculate points of Ace', () => {
+  it('should get the correct points for Ace', () => {
     // Given
     const ace = new Card({ suit: Suit.DIAMONDS, value: Value.ACE });
 
@@ -45,5 +35,15 @@ describe('Card', () => {
 
     // Then
     expect(ace.GetPoints()).toEqual(11);
+  });
+
+  it('should convert Card to string', () => {
+    // Given
+    const card = new Card({ suit: Suit.DIAMONDS, value: Value.KING });
+
+    // When
+
+    // Then
+    expect(card.ToString()).toEqual('DK');
   });
 });

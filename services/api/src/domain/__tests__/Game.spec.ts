@@ -23,7 +23,7 @@ describe('Game', () => {
     expect(() => new Game({ playerOne, playerTwo, deck })).not.toThrow();
   });
 
-  it('should check if there is a draw each players have blackjack', () => {
+  it('should check if there is a draw if each players have blackjack', () => {
     // Given
     const cards = [
       createTestCard({ value: Value.ACE }),

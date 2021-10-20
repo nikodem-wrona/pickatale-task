@@ -7,7 +7,7 @@ import { GameController } from '../game.controller';
 
 import { MockGameService } from '../../services/__test__';
 
-describe('GameController', () => {
+describe('Game Controller', () => {
   let service: MockGameService;
   let app: INestApplication;
 

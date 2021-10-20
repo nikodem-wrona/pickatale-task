@@ -23,7 +23,7 @@ export class Hand {
     this.cards = [...this.cards, card];
   }
 
-  GetCards(): string[] {
+  GetStringifiedCards(): string[] {
     return this.cards.map((card) => card.ToString());
   }
 
@@ -31,7 +31,7 @@ export class Hand {
     return this.cards.length;
   }
 
-  GetValue(): number {
+  GetValueOfCards(): number {
     let sum = 0;
     this.cards.forEach((card) => (sum += card.GetPoints()));
     return sum;
@@ -43,12 +43,12 @@ export class Hand {
 
   CheckBlackjack(): boolean {
     return (
-      this.GetValue() === BLACKJACK_POINTS &&
+      this.GetValueOfCards() === BLACKJACK_POINTS &&
       this.GetNumberOfCards() === INITIAL_NUMBER_OF_CARDS
     );
   }
 
   CheckExceededScore(): boolean {
-    return this.GetValue() > BLACKJACK_POINTS;
+    return this.GetValueOfCards() > BLACKJACK_POINTS;
   }
 }
