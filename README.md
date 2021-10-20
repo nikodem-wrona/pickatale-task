@@ -17,11 +17,18 @@ The application consists of two microservices:
 both services use `Typescript`
 
 ---
-To run the project locally you can use the following command from the root folder:
+To run the project locally you can use the following commands:
 
+in the `/services/api`:
 ```
-docker-compose up -d --build 
+yarn start:dev
 ```
+
+in the `/services/web`:
+```
+yarn dev
+```
+then go to [http://localhost:3000/blackjack](http://localhost:3000/blackjack)
 
 ### Development
 
